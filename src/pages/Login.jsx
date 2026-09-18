@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { DB, formatRupiah } from '../data/db';
 import { LogIn, User } from 'lucide-react';
 
 const Login = () => {
   const { login } = useAuth();
+  const navigate = useNavigate();
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
     if (login(userId, password)) {
-      window.location.href = '/';
+      navigate('/');
     } else {
       setError('User ID atau Password salah!');
     }
