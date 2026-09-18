@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { BookOpen, Layers, Database, ShoppingCart, DollarSign, Users, FileText, FileBarChart, Lock, GitBranch, LayoutDashboard } from 'lucide-react';
 
@@ -17,20 +18,20 @@ const navItems = [
 
 const Sidebar = () => {
   const { currentUser, logout } = useAuth();
-  const currentPath = window.location.pathname;
+  const { pathname } = useLocation();
 
   return (
     <aside className="sidebar">
       <div className="logo">Sewa Kebaya</div>
       <nav>
         {navItems.map(item => {
-          const isActive = currentPath === item.path;
+          const isActive = pathname === item.path;
           const Icon = item.icon;
           return (
-            <li key={item.path} className={isActive ? 'active' : ''}>
+            <Link key={item.path} to={item.path} className={isActive ? 'active' : ''} style={{ textDecoration: 'none', color: '#fff' }}>
               <Icon size={18} />
               <span>{item.label}</span>
-            </li>
+            </Link>
           );
         })}
       </nav>

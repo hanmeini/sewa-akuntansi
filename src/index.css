@@ -9,13 +9,13 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 }
 .sidebar .logo { padding: 0 20px 20px; font-size: 1.3rem; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 15px; }
 .sidebar nav { list-style: none; padding: 0; }
-.sidebar nav li {
+.sidebar nav a {
   padding: 10px 20px; margin: 2px 0; cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0; color: #fff; text-decoration: none;
 }
-.sidebar nav li:hover { background: rgba(255,255,255,0.08); }
-.sidebar nav li.active { background: rgba(255,255,255,0.15); font-weight: 600; }
+.sidebar nav a:hover { background: rgba(255,255,255,0.08); }
+.sidebar nav a.active { background: rgba(255,255,255,0.15); font-weight: 600; }
 .sidebar .user-info {
   position: absolute; bottom: 20px; left: 20px; right: 20px; padding: 12px;
   background: rgba(255,255,255,0.08); border-radius: 8px; font-size: 0.85rem;
